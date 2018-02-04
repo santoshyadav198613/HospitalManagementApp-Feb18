@@ -1,4 +1,4 @@
-<h1>
+<h1 [ngClass]=" { 'alert alert-success' : visible }">
     Employee Component
 </h1>
 
@@ -8,6 +8,69 @@
  
 </div>
 
+<div *ngIf="visible" [innerText]="title">
+ 
+</div>
+
+<!-- 
+<div *ngIf="!visible" [innerText]="title">
+ 
+</div> -->
+
 {{visible}}
 
 <button type="button" (click)="toggle()">Toggle</button> 
+<hr>
+
+{{employee | json}}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Salary
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employee">
+            <td>
+                {{emp.id}}
+            </td>
+            <td>
+                {{emp.name}}
+            </td>
+            <td>
+                {{emp.email}}
+            </td>
+            <td>
+                {{emp.salary}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div [ngSwitch]="role">
+    <div *ngSwitchCase="'User'">
+            This is User Section.
+    </div>
+    <div *ngSwitchCase="'Admin'">
+        This is Admin Section.
+    </div>
+    <div *ngSwitchCase="'Super User'">
+        This is Super User Section.
+    </div>
+    <div *ngSwitchDefault>
+            This is default view.
+    </div>
+</div>

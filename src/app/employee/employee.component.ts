@@ -10,6 +10,7 @@ export class EmployeeComponent implements OnInit {
   title: string = 'Employee';
   visible: boolean = false;
   role: string = 'User';
+  selectedEmployee: Employee;
   employee: Employee[] = [
     { id: 1, name: 'Test1', email: 'abc@gmail.com', salary: 12000 },
     { id: 2, name: 'Test2', email: 'abc@gmail.com', salary: 24000 },
@@ -25,4 +26,7 @@ export class EmployeeComponent implements OnInit {
     this.visible = !this.visible;
   }
 
+  receiveFromParent(emp:Employee) {
+     this.selectedEmployee = emp;
+  }
 }

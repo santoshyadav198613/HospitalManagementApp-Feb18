@@ -21,43 +21,12 @@
 
 <button type="button" (click)="toggle()">Toggle</button> 
 <hr>
+{{selectedEmployee| json}}
+<hr>
 
-{{employee | json}}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                ID
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Salary
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let emp of employee">
-            <td>
-                {{emp.id}}
-            </td>
-            <td>
-                {{emp.name}}
-            </td>
-            <td>
-                {{emp.email}}
-            </td>
-            <td>
-                {{emp.salary}}
-            </td>
-        </tr>
-    </tbody>
-</table>
+<app-employee-list [employeeList]="employee"
+[title]="'Employee List'" (selectedEmployee)="receiveFromParent($event)"></app-employee-list>
 
 
 <div [ngSwitch]="role">

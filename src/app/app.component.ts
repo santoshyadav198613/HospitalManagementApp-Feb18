@@ -10,5 +10,5 @@ import { Component } from '@angular/core';
   //    'background-color : red ' ]
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Angular App';
 }

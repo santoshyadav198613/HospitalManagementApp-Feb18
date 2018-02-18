@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
 
+import { Component, OnInit, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { Book } from './book';
-
 import { BooksListComponent } from './books-list/books-list.component';
 
 @Component({
@@ -16,6 +15,8 @@ export class BooksComponent implements OnInit {
     { id: 3, author: 'Suchitra', name: 'Angular Material', price: 600, version: '5.0.0' }];
   @ViewChild(BooksListComponent)
   bookListComponent: BooksListComponent;
+  @ViewChildren(BooksListComponent)
+  bookChildrenComponent: QueryList<BooksListComponent>;
   constructor() { }
 
   ngOnInit() {
@@ -23,6 +24,11 @@ export class BooksComponent implements OnInit {
 
   loadBooks() {
     this.bookListComponent.booksList = this.books;
+    console.log(this.bookListComponent);
+    console.log(this.bookChildrenComponent);
+    this.bookChildrenComponent.forEach((bookComponent) => {
+      bookComponent.booksList = this.books;
+    })
   }
 
 }

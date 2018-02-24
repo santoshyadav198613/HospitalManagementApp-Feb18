@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 
 import { Employee } from './employee';
 @Component({
@@ -6,27 +6,37 @@ import { Employee } from './employee';
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
-export class EmployeeComponent implements OnInit {
-  title: string = 'Employee';
+export class EmployeeComponent implements OnInit, DoCheck {
+  title: string = 'Employee List';
   visible: boolean = false;
   role: string = 'User';
   selectedEmployee: Employee;
-  employee: Employee[] = [
-    { id: 1, name: 'Test1', email: 'abc@gmail.com', salary: 12000 },
-    { id: 2, name: 'Test2', email: 'abc@gmail.com', salary: 24000 },
-    { id: 3, name: 'Test3', email: 'abc@gmail.com', salary: 48000 },
-    { id: 4, name: 'Test4', email: 'abc@gmail.com', salary: 120000 }
-  ]
+  employee: Employee[];
   constructor() { }
 
   ngOnInit() {
+    this.loadEmployee();
+  }
+
+  ngDoCheck(): void{
+      console.log('do check is called');
+  }
+  
+  loadEmployee() {
+    this.employee = [
+      { id: 1, name: 'Test1', email: 'abc@gmail.com', salary: 12000 },
+      { id: 2, name: 'Test2', email: 'abc@gmail.com', salary: 24000 },
+      { id: 3, name: 'Test3', email: 'abc@gmail.com', salary: 48000 },
+      { id: 4, name: 'Test4', email: 'abc@gmail.com', salary: 120000 }
+    ];
   }
 
   toggle(): void {
     this.visible = !this.visible;
+    this.title = "New Employee List";
   }
 
-  receiveFromParent(emp:Employee) {
-     this.selectedEmployee = emp;
+  receiveFromParent(emp: Employee) {
+    this.selectedEmployee = emp;
   }
 }

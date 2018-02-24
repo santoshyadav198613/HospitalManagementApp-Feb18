@@ -26,7 +26,7 @@
 
 
 <app-employee-list [employeeList]="employee"
-[title]="'Employee List'" (selectedEmployee)="receiveFromParent($event)"></app-employee-list>
+[title]="title" (selectedEmployee)="receiveFromParent($event)"></app-employee-list>
 
 
 <div [ngSwitch]="role">

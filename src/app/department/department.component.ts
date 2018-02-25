@@ -9,7 +9,7 @@ import {department} from './department';
 export class DepartmentComponent implements OnInit {
 
 
-  employee: department[] = [
+  department: department[] = [
     { empid: 100, empname: 'emp1', empemail: 'abc@gmail.com', empsalary: 10000 },
     { empid: 101, empname: 'emp2', empemail: 'abc@gmail.com', empsalary: 20000 },
     { empid: 102, empname: 'emp3', empemail: 'abc@gmail.com', empsalary: 30000 },

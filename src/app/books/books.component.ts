@@ -3,26 +3,31 @@ import {
   Component, OnInit, ViewChild,
   ViewChildren, QueryList, AfterViewInit
 } from '@angular/core';
-import { Book } from './book';
+import { Book } from '../services/books/book';
 import { BooksListComponent } from './books-list/books-list.component';
+
+import { BooksService } from '../services/books/books.service';
 
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  styleUrls: ['./books.component.css'],
+  providers : [BooksService]
 })
 export class BooksComponent implements OnInit, AfterViewInit {
-  books: Book[] = [
-    { id: 1, author: 'Sunil', name: 'AngularJS', price: 200, version: '1.6.7' },
-    { id: 2, author: 'Datta', name: 'Angular2', price: 400, version: '2.0.0' },
-    { id: 3, author: 'Suchitra', name: 'Angular Material', price: 600, version: '5.0.0' }];
+   books: Book[] = [];
+  //  = [
+  //   { id: 1, author: 'Sunil', name: 'AngularJS', price: 200, version: '1.6.7' },
+  //   { id: 2, author: 'Datta', name: 'Angular2', price: 400, version: '2.0.0' },
+  //   { id: 3, author: 'Suchitra', name: 'Angular Material', price: 600, version: '5.0.0' }];
   @ViewChild(BooksListComponent)
   bookListComponent: BooksListComponent;
   @ViewChildren(BooksListComponent)
   bookChildrenComponent: QueryList<BooksListComponent>;
-  constructor() { }
+  constructor(private bookService: BooksService) { }
 
   ngOnInit() {
+    this.books = this.bookService.getBooks();
     console.log(this.bookChildrenComponent);
     //this.bookListComponent.booksList = this.books;
   }

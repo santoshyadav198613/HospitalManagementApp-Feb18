@@ -1,6 +1,8 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 
-import { Employee } from './employee';
+import { Employee } from '../services/employee/employee';
+import { EmployeeService } from '../services/employee/employee.service';
+
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -11,24 +13,28 @@ export class EmployeeComponent implements OnInit, DoCheck {
   visible: boolean = false;
   role: string = 'User';
   selectedEmployee: Employee;
-  employee: Employee[];
-  constructor() { }
+  employee: Employee[] = [];
+  // employeeSevice: EmployeeService;
+  constructor(private empService: EmployeeService) {
+    // this.employeeSevice = empService;
+  }
 
   ngOnInit() {
     this.loadEmployee();
   }
 
-  ngDoCheck(): void{
-      console.log('do check is called');
+  ngDoCheck(): void {
+    console.log('do check is called');
   }
-  
+
   loadEmployee() {
-    this.employee = [
-      { id: 1, name: 'Test1', email: 'abc@gmail.com', salary: 12000 },
-      { id: 2, name: 'Test2', email: 'abc@gmail.com', salary: 24000 },
-      { id: 3, name: 'Test3', email: 'abc@gmail.com', salary: 48000 },
-      { id: 4, name: 'Test4', email: 'abc@gmail.com', salary: 120000 }
-    ];
+    this.employee = this.empService.getEmployeeList();
+    // this.employee = [
+    //   { id: 1, name: 'Test1', email: 'abc@gmail.com', salary: 12000 },
+    //   { id: 2, name: 'Test2', email: 'abc@gmail.com', salary: 24000 },
+    //   { id: 3, name: 'Test3', email: 'abc@gmail.com', salary: 48000 },
+    //   { id: 4, name: 'Test4', email: 'abc@gmail.com', salary: 120000 }
+    // ];
   }
 
   toggle(): void {

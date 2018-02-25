@@ -3,7 +3,7 @@ import {
   Input, Output, EventEmitter, OnChanges, SimpleChanges,
   OnDestroy
 } from '@angular/core';
-import { Employee } from '../employee';
+import { Employee } from '../../services/employee/employee';
 
 @Component({
   selector: 'app-employee-list',

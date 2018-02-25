@@ -24,10 +24,10 @@
 {{selectedEmployee| json}}
 <hr>
 
-<div *ngIf="visible">
+<!-- <div *ngIf="visible"> -->
     <app-employee-list [employeeList]="employee"
     [title]="title" (selectedEmployee)="receiveFromParent($event)"></app-employee-list>
-</div>
+<!-- </div> -->
 
 
 <div [ngSwitch]="role">

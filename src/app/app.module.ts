@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
@@ -10,6 +11,8 @@ import { BooksListComponent } from './books/books-list/books-list.component';
 
 import { EmployeeService } from './services/employee/employee.service';
 import { NewemployeeService } from './services/employee/newemployee.service';
+import { PostsComponent } from './posts/posts.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,10 +20,12 @@ import { NewemployeeService } from './services/employee/newemployee.service';
     DepartmentComponent,
     EmployeeListComponent,
     BooksComponent,
-    BooksListComponent
+    BooksListComponent,
+    PostsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     // EmployeeService,

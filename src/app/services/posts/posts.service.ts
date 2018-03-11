@@ -22,4 +22,8 @@ export class PostsService {
     return this.http.put('https://jsonplaceholder.typicode.com/posts/2', post);
   }
 
+  deletePost(){
+    return this.http.delete('https://jsonplaceholder.typicode.com/posts/2');
+  }
+
 }

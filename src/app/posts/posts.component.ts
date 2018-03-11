@@ -31,4 +31,9 @@ export class PostsComponent implements OnInit {
     this.postService.updatePost().subscribe((res) => console.log(res),
       (err) => console.log(err));
   }
+
+  deletePost() {
+    this.postService.deletePost().subscribe((res) => console.log(res));
+  }
+  
 }

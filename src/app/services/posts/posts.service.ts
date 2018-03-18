@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Posts } from './posts';
 
 @Injectable()
@@ -9,11 +9,12 @@ export class PostsService {
   constructor(private http: HttpClient) { }
 
   getPosts() {
-    return this.http.get<Posts[]>('https://jsonplaceholder.typicode.com/posts');
+    return this.http.get<Posts[]>('https://jsonplaceholder.typicode.com/posts',
+      { headers: new HttpHeaders().set('authKey', 'fsdfjdgsf435345hjk').set('authpwd', 'fdsfdsf') });
   }
 
-  addPost() {
-    let post: Posts = { title: 'Test', body: 'Test Body', userId: 3 };
+  addPost(post: Posts) {
+   // let post: Posts = { title: 'Test', body: 'Test Body', userId: 3 };
     return this.http.post<Posts>('https://jsonplaceholder.typicode.com/posts', post);
   }
 
@@ -22,7 +23,7 @@ export class PostsService {
     return this.http.put('https://jsonplaceholder.typicode.com/posts/2', post);
   }
 
-  deletePost(){
+  deletePost() {
     return this.http.delete('https://jsonplaceholder.typicode.com/posts/2');
   }
 

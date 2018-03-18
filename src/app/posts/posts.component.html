@@ -1,9 +1,28 @@
 <h1>
-  Post List
+  Post 
 </h1>
 
+{{post | json}}
+{{postForm.valid | json }}
+{{postForm.invalid | json }}
+{{postForm.pristine | json }}
+{{postForm.dirty | json }}
+{{postForm.value | json }}
+<form #postForm="ngForm" novalidate (submit)="addPost();postForm.reset()">
+  <div class="form-group">
+    <input required class="form-control" [(ngModel)]="post.userId" name="userid" type="number" placeholder="UserId">
+  </div>
+  <div class="form-group">
+    <input required minlength="4" maxlength="14" class="form-control" [(ngModel)]="post.title" name="title" type="text" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <input required class="form-control" type="text" [(ngModel)]="post.body" name="body" placeholder="Body">
+  </div>
+  <div class="form-group">
+    <button [disabled]="postForm.invalid" type="submit" class="btn btn-primary">Add Post</button>    
+  </div>
+</form>
 <!-- {{postsList | json}} -->
 
-<button type="button" (click)="addPost()" class="btn btn-primary">App Post</button>
 <button type="button" (click)="updatePost()" class="btn btn-success">Update Post</button>
 <button type="button" (click)="deletePost()" class="btn btn-success">Delete Post</button>

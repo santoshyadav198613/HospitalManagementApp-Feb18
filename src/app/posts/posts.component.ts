@@ -9,6 +9,7 @@ import { Posts } from '../services/posts/posts';
 })
 export class PostsComponent implements OnInit {
   postsList: Posts[];
+  post: Posts = new Posts();
   constructor(private postService: PostsService) { }
 
   ngOnInit() {
@@ -21,8 +22,10 @@ export class PostsComponent implements OnInit {
   }
 
   addPost() {
-    this.postService.addPost().subscribe((res) => {
+    console.log(this.post);
+    this.postService.addPost(this.post).subscribe((res) => {
       console.log(res);
+       this.post = new Posts();
     },
       (err) => console.log(err))
   }
@@ -35,5 +38,5 @@ export class PostsComponent implements OnInit {
   deletePost() {
     this.postService.deletePost().subscribe((res) => console.log(res));
   }
-  
+
 }

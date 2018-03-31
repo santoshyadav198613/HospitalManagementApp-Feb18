@@ -2,6 +2,8 @@
   Post
 </h1>
 
+{{downloadedBytes}}
+
 {{post | json}} {{postForm.valid | json }} {{postForm.invalid | json }} {{postForm.pristine | json }} {{postForm.dirty |
 json }} {{postForm.value | json }}
 <form #postForm="ngForm" novalidate (submit)="addPost();postForm.reset()">

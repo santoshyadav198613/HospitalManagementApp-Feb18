@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../services/posts/posts.service';
 import { Posts } from '../services/posts/posts';
+import { HttpEventType } from '@angular/common/http';
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -10,9 +11,26 @@ import { Posts } from '../services/posts/posts';
 export class PostsComponent implements OnInit {
   postsList: Posts[];
   post: Posts = new Posts();
+  downloadedBytes: number = 0;
   constructor(private postService: PostsService) { }
 
   ngOnInit() {
+    this.postService.getPhotos().subscribe(
+      (event) => {
+        switch (event.type) {
+          case HttpEventType.DownloadProgress: {
+            this.downloadedBytes = this.downloadedBytes + event.loaded;
+            break;
+          }
+          case HttpEventType.Response: {
+            console.log(event.body);
+            break;
+          }
+        }
+      },
+      (err) => console.log(err)
+    )
+
     this.postService.getPosts().subscribe((res) => {
       this.postsList = res;
     },
@@ -25,7 +43,7 @@ export class PostsComponent implements OnInit {
     console.log(this.post);
     this.postService.addPost(this.post).subscribe((res) => {
       console.log(res);
-       this.post = new Posts();
+      this.post = new Posts();
     },
       (err) => console.log(err))
   }

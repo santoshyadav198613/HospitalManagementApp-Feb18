@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Posts } from './posts';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class PostsService {
   }
 
   addPost(post: Posts) {
-   // let post: Posts = { title: 'Test', body: 'Test Body', userId: 3 };
+    // let post: Posts = { title: 'Test', body: 'Test Body', userId: 3 };
     return this.http.post<Posts>('https://jsonplaceholder.typicode.com/posts', post);
   }
 
@@ -25,6 +25,12 @@ export class PostsService {
 
   deletePost() {
     return this.http.delete('https://jsonplaceholder.typicode.com/posts/2');
+  }
+
+  getPhotos() {
+    const request = new HttpRequest('GET', 'https://jsonplaceholder.typicode.com/photos',
+     { reportProgress: true });
+    return this.http.request(request);
   }
 
 }

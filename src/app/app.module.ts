@@ -22,6 +22,7 @@ import { APP_PROVIDER, AppConfig } from './services/valueProvider/appProvider';
 
 import { VALUE_PROVIDER } from './services/valueProvider/valueProvider';
 import { environment } from '../environments/environment';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { environment } from '../environments/environment';
     BooksComponent,
     BooksListComponent,
     PostsComponent,
-    OrderComponent
+    OrderComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -43,8 +45,10 @@ import { environment } from '../environments/environment';
         { path: 'book', component: BooksComponent },
         { path: 'department', component: DepartmentComponent },
         { path: 'employee', component: EmployeeComponent },
-        { path: 'posts', component : PostsComponent},
-        { path: 'order' , component: OrderComponent }
+        { path: 'posts', component: PostsComponent },
+        { path: 'order', component: OrderComponent },
+        { path: '', redirectTo: 'employee', pathMatch: 'full' },
+        { path: '**' , component : PagenotfoundComponent }
       ]
     )
   ],

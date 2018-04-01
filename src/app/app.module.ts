@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
@@ -17,7 +18,7 @@ import { OrderComponent } from './order/order.component';
 
 import { PostInterceptorService } from './services/posts/post-interceptor.service';
 
-import { APP_PROVIDER , AppConfig } from './services/valueProvider/appProvider';
+import { APP_PROVIDER, AppConfig } from './services/valueProvider/appProvider';
 
 import { VALUE_PROVIDER } from './services/valueProvider/valueProvider';
 import { environment } from '../environments/environment';
@@ -36,7 +37,16 @@ import { environment } from '../environments/environment';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(
+      [
+        { path: 'book', component: BooksComponent },
+        { path: 'department', component: DepartmentComponent },
+        { path: 'employee', component: EmployeeComponent },
+        { path: 'posts', component : PostsComponent},
+        { path: 'order' , component: OrderComponent }
+      ]
+    )
   ],
   providers: [
     // EmployeeService,

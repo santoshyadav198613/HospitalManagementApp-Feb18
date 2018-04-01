@@ -17,6 +17,8 @@ import { OrderComponent } from './order/order.component';
 
 import { PostInterceptorService } from './services/posts/post-interceptor.service';
 
+import { APP_PROVIDER , AppConfig } from './services/valueProvider/appProvider';
+
 import { VALUE_PROVIDER } from './services/valueProvider/valueProvider';
 import { environment } from '../environments/environment';
 @NgModule({
@@ -40,6 +42,7 @@ import { environment } from '../environments/environment';
     // EmployeeService,
     { provide: EmployeeService, useClass: NewemployeeService },
     { provide: VALUE_PROVIDER, useValue: environment },
+    { provide: APP_PROVIDER, useValue: AppConfig },
     { provide: HTTP_INTERCEPTORS, useClass: PostInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })

@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
+import { RoutingModule } from './routing/routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { DepartmentComponent } from './department/department.component';
@@ -13,16 +13,15 @@ import { BooksListComponent } from './books/books-list/books-list.component';
 
 import { EmployeeService } from './services/employee/employee.service';
 import { NewemployeeService } from './services/employee/newemployee.service';
-import { PostsComponent } from './posts/posts.component';
 import { OrderComponent } from './order/order.component';
-
-import { PostInterceptorService } from './services/posts/post-interceptor.service';
 
 import { APP_PROVIDER, AppConfig } from './services/valueProvider/appProvider';
 
 import { VALUE_PROVIDER } from './services/valueProvider/valueProvider';
 import { environment } from '../environments/environment';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PostsModule } from './posts/posts.module';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,33 +30,20 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     EmployeeListComponent,
     BooksComponent,
     BooksListComponent,
-    PostsComponent,
     OrderComponent,
     PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(
-      [
-        { path: 'book', component: BooksComponent },
-        { path: 'department', component: DepartmentComponent },
-        { path: 'employee', component: EmployeeComponent },
-        { path: 'posts', component: PostsComponent },
-        { path: 'order', component: OrderComponent },
-        { path: '', redirectTo: 'employee', pathMatch: 'full' },
-        { path: '**' , component : PagenotfoundComponent }
-      ]
-    )
+    SharedModule,
+    RoutingModule,
+    PostsModule
   ],
   providers: [
     // EmployeeService,
     { provide: EmployeeService, useClass: NewemployeeService },
     { provide: VALUE_PROVIDER, useValue: environment },
-    { provide: APP_PROVIDER, useValue: AppConfig },
-    { provide: HTTP_INTERCEPTORS, useClass: PostInterceptorService, multi: true }],
+    { provide: APP_PROVIDER, useValue: AppConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,6 +20,8 @@ import { environment } from '../environments/environment';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { PostsModule } from './posts/posts.module';
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/service/login.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { SharedModule } from './shared/shared.module';
     BooksComponent,
     BooksListComponent,
     OrderComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { SharedModule } from './shared/shared.module';
     // EmployeeService,
     { provide: EmployeeService, useClass: NewemployeeService },
     { provide: VALUE_PROVIDER, useValue: environment },
-    { provide: APP_PROVIDER, useValue: AppConfig }],
+    { provide: APP_PROVIDER, useValue: AppConfig }, 
+    LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

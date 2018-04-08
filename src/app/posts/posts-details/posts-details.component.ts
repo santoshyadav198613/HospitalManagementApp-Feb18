@@ -13,9 +13,10 @@ export class PostsDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(
-      (res) => this.postId = + res.get('id'),
+      (res) => {
+      this.postId = + res.get('id');
+      },
       (err) => console.log(err)
     )
   }
-
 }

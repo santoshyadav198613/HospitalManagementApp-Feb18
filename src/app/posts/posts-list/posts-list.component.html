@@ -22,6 +22,10 @@
         <button type="button" class="btn btn-success" [routerLink]="[post.id]">
           Details
         </button>
+        <button type="button" class="btn btn-success" [routerLink]="[post.id,'edit',post.userId]">
+            Edit
+          </button>
+          
       </td>
     </tr>
   </tbody>

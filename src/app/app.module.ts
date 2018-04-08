@@ -22,6 +22,7 @@ import { PostsModule } from './posts/posts.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/service/login.service';
+import { PostEditComponent } from './post-edit/post-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { LoginService } from './login/service/login.service';
     BooksListComponent,
     OrderComponent,
     PagenotfoundComponent,
-    LoginComponent
+    LoginComponent,
+    PostEditComponent
   ],
   imports: [
     BrowserModule,

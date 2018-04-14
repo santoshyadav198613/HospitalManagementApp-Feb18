@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PostsDetailsComponent } from './posts-details/posts-details.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { PostEditComponent } from '../post-edit/post-edit.component';
+import { AuthGuard } from '../services/guards/auth.guard';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { PostEditComponent } from '../post-edit/post-edit.component';
     RouterModule.forChild([
       {
         path: 'posts', component: PostsComponent,
+        canActivate : [ AuthGuard],
         children: [
           { path: ':id', component: PostsDetailsComponent },
           { path: ':id/edit/:userid' , component : PostEditComponent }

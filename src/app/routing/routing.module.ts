@@ -7,6 +7,7 @@ import { EmployeeComponent } from '../employee/employee.component';
 import { OrderComponent } from '../order/order.component';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 import { LoginComponent } from '../login/login.component';
+import { AuthGuard } from '../services/guards/auth.guard';
 
 @NgModule({
   imports: [
@@ -14,10 +15,10 @@ import { LoginComponent } from '../login/login.component';
     RouterModule.forRoot(
       [
         { path: 'login', component: LoginComponent },
-        { path: 'book', component: BooksComponent },
-        { path: 'department', component: DepartmentComponent },
-        { path: 'employee', component: EmployeeComponent },
-        { path: 'order', component: OrderComponent },
+        { path: 'book', component: BooksComponent, canActivate: [AuthGuard] },
+        { path: 'department', component: DepartmentComponent, canActivate: [AuthGuard] },
+        { path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard] },
+        { path: 'order', component: OrderComponent, canActivate: [AuthGuard] },
         { path: '', redirectTo: 'login', pathMatch: 'full' },
         { path: '**', component: PagenotfoundComponent }
       ]

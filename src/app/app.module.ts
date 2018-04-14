@@ -23,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/service/login.service';
 import { PostEditComponent } from './post-edit/post-edit.component';
+import { AuthGuard } from './services/guards/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,7 @@ import { PostEditComponent } from './post-edit/post-edit.component';
     { provide: EmployeeService, useClass: NewemployeeService },
     { provide: VALUE_PROVIDER, useValue: environment },
     { provide: APP_PROVIDER, useValue: AppConfig }, 
-    LoginService],
+    LoginService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

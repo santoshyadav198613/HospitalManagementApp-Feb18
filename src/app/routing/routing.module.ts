@@ -15,6 +15,7 @@ import { AuthGuard } from '../services/guards/auth.guard';
     RouterModule.forRoot(
       [
         { path: 'login', component: LoginComponent },
+        { path : 'posts', loadChildren : '../posts/posts.module#PostsModule' },
         { path: 'book', component: BooksComponent, canActivate: [AuthGuard] },
         { path: 'department', component: DepartmentComponent, canActivate: [AuthGuard] },
         { path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard] },

@@ -16,7 +16,7 @@ import { PostsService } from '../services/posts/posts.service';
     SharedModule,
     RouterModule.forChild([
       {
-        path: 'posts', component: PostsComponent,
+        path: '', component: PostsComponent,
         canActivate: [AuthGuard], canActivateChild: [AuthGuard],
         resolve: {
           postsList: PostResolveGuard
@@ -29,7 +29,10 @@ import { PostsService } from '../services/posts/posts.service';
       // { path: 'posts/:id', component: PostsDetailsComponent }
     ])
   ],
-  declarations: [PostsComponent, PostsDetailsComponent, PostsListComponent],
+  declarations: [PostsComponent,
+     PostsDetailsComponent, 
+     PostsListComponent , 
+     PostEditComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: PostInterceptorService, multi: true },
     PostResolveGuard,

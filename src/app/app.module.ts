@@ -18,11 +18,9 @@ import { APP_PROVIDER, AppConfig } from './services/valueProvider/appProvider';
 import { VALUE_PROVIDER } from './services/valueProvider/valueProvider';
 import { environment } from '../environments/environment';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { PostsModule } from './posts/posts.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/service/login.service';
-import { PostEditComponent } from './post-edit/post-edit.component';
 import { AuthGuard } from './services/guards/auth.guard';
 @NgModule({
   declarations: [
@@ -34,13 +32,10 @@ import { AuthGuard } from './services/guards/auth.guard';
     BooksListComponent,
     OrderComponent,
     PagenotfoundComponent,
-    LoginComponent,
-    PostEditComponent
-  ],
+    LoginComponent  ],
   imports: [
     BrowserModule,
     SharedModule,
-    PostsModule,
     RoutingModule
   ],
   providers: [

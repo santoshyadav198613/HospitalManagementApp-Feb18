@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../../services/posts/posts.service';
 import { Posts } from '../../services/posts/posts';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -12,16 +13,17 @@ export class PostsListComponent implements OnInit {
 
   postsList: Posts[];
 
-  constructor(private postService: PostsService) { }
+  constructor(private postService: PostsService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.postService.getPosts().subscribe((res) => {
-      this.postsList = res;
-    },
-      (error) => {
-        console.log(error)
-      });
+    this.route.data.subscribe(
+      (res) => {
+        this.postsList = res['postsList']
+      },
+      (err) => console.log(err)
+    )
   }
 
 }

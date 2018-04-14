@@ -8,6 +8,8 @@ import { PostsDetailsComponent } from './posts-details/posts-details.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { PostEditComponent } from '../post-edit/post-edit.component';
 import { AuthGuard } from '../services/guards/auth.guard';
+import { PostResolveGuard } from '../services/posts/post-resolve.guard';
+import { PostsService } from '../services/posts/posts.service';
 
 @NgModule({
   imports: [
@@ -15,10 +17,13 @@ import { AuthGuard } from '../services/guards/auth.guard';
     RouterModule.forChild([
       {
         path: 'posts', component: PostsComponent,
-        canActivate : [ AuthGuard],
+        canActivate: [AuthGuard], canActivateChild: [AuthGuard],
+        resolve: {
+          postsList: PostResolveGuard
+        },
         children: [
           { path: ':id', component: PostsDetailsComponent },
-          { path: ':id/edit/:userid' , component : PostEditComponent }
+          { path: ':id/edit/:userid', component: PostEditComponent }
         ]
       }
       // { path: 'posts/:id', component: PostsDetailsComponent }
@@ -26,7 +31,9 @@ import { AuthGuard } from '../services/guards/auth.guard';
   ],
   declarations: [PostsComponent, PostsDetailsComponent, PostsListComponent],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: PostInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: PostInterceptorService, multi: true },
+    PostResolveGuard,
+    { provide: PostsService, useClass: PostsService }
   ]
 })
 export class PostsModule { }

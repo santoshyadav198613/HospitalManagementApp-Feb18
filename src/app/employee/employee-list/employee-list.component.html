@@ -3,6 +3,8 @@
 
 {{employeeList | json}}
 
+<input class="form-control" type="number" [(ngModel)]="amount" placeholder="Salary">
+
 <table class="table">
     <thead>
         <tr>
@@ -19,15 +21,15 @@
                 Salary
             </th>
             <th>
-               Date of Birth
+                Date of Birth
             </th>
             <th>
-              Select
+                Select
             </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let emp of employeeList">
+        <tr *ngFor="let emp of employeeList | salary : amount">
             <td>
                 {{emp.id | percent}}
             </td>
@@ -44,9 +46,9 @@
                 {{emp.dob | date : 'dd-MMM-yyyy'}}
             </td>
             <td>
-              <button (click)="selectEmployee(emp)" type="button" class="btn btn-primary">
-                Select
-              </button>
+                <button (click)="selectEmployee(emp)" type="button" class="btn btn-primary">
+                    Select
+                </button>
             </td>
         </tr>
     </tbody>

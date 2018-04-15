@@ -22,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/service/login.service';
 import { AuthGuard } from './services/guards/auth.guard';
+import { SalaryPipe } from './custom/salary.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { AuthGuard } from './services/guards/auth.guard';
     BooksListComponent,
     OrderComponent,
     PagenotfoundComponent,
-    LoginComponent  ],
+    LoginComponent,
+    SalaryPipe  ],
   imports: [
     BrowserModule,
     SharedModule,

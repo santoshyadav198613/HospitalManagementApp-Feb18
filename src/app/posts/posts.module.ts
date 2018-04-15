@@ -6,10 +6,10 @@ import { PostsComponent } from './posts.component';
 import { SharedModule } from '../shared/shared.module';
 import { PostsDetailsComponent } from './posts-details/posts-details.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
-import { PostEditComponent } from '../post-edit/post-edit.component';
 import { AuthGuard } from '../services/guards/auth.guard';
 import { PostResolveGuard } from '../services/posts/post-resolve.guard';
 import { PostsService } from '../services/posts/posts.service';
+import { PostEditComponent } from './post-edit/post-edit.component';
 
 @NgModule({
   imports: [

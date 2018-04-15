@@ -19,6 +19,9 @@
                 Salary
             </th>
             <th>
+               Date of Birth
+            </th>
+            <th>
               Select
             </th>
         </tr>
@@ -26,16 +29,19 @@
     <tbody>
         <tr *ngFor="let emp of employeeList">
             <td>
-                {{emp.id}}
+                {{emp.id | percent}}
             </td>
             <td>
-                {{emp.name}}
+                {{emp.name | lowercase}}
             </td>
             <td>
                 {{emp.email}}
             </td>
             <td>
-                {{emp.salary}}
+                {{emp.salary | amount : '$' }}
+            </td>
+            <td>
+                {{emp.dob | date : 'dd-MMM-yyyy'}}
             </td>
             <td>
               <button (click)="selectEmployee(emp)" type="button" class="btn btn-primary">

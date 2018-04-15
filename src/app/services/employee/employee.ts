@@ -3,4 +3,5 @@ export class Employee {
     name: string;
     salary: number;
     email: string;
+    dob: Date;
 }

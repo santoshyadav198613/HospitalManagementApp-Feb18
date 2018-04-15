@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AmountPipe } from '../custom/amount.pipe';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule],
-  declarations: []
+    RouterModule,AmountPipe],
+  declarations: [AmountPipe]
 })
 export class SharedModule { }

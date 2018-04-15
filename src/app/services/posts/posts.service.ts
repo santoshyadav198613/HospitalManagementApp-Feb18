@@ -9,8 +9,9 @@ export class PostsService {
 
   apiBaseUrl: string;
 
-  constructor(private http: HttpClient, @Inject(VALUE_PROVIDER) private valueProvider: any) {
+  constructor(isLoggedIn:boolean, private http: HttpClient, @Inject(VALUE_PROVIDER) private valueProvider: any) {
     this.apiBaseUrl = this.valueProvider.apiUrl;
+    console.log(isLoggedIn);
   }
 
   getPosts() {

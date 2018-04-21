@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { CutomValidator } from './cardValidator';
 
 @Component({
   selector: 'app-order',
@@ -35,7 +36,7 @@ export class OrderComponent implements OnInit {
   buildForm() {
     return this.fb.group(
       {
-        cardNumber: new FormControl('', [Validators.required]),
+        cardNumber: new FormControl('', [Validators.required, CutomValidator.cardValidator]),
         expMonth: new FormControl('', [Validators.min(1), Validators.max(12)]),
         expYear: new FormControl('', [Validators.required,Validators.min(1), Validators.max(12)]),
         cvv: new FormControl('', [Validators.required])

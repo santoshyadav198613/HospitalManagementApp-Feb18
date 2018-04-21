@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AmountPipe } from '../custom/amount.pipe';
+import { HoverDirective } from '../directives/hover/hover.directive';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { AmountPipe } from '../custom/amount.pipe';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,AmountPipe],
-  declarations: [AmountPipe]
+    RouterModule,AmountPipe, HoverDirective],
+  declarations: [AmountPipe, HoverDirective]
 })
 export class SharedModule { }

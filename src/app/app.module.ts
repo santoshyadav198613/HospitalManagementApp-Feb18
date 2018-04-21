@@ -23,6 +23,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/service/login.service';
 import { AuthGuard } from './services/guards/auth.guard';
 import { SalaryPipe } from './custom/salary.pipe';
+import { PasswordValidatorDirective } from './login/password-validator/password-validator.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { SalaryPipe } from './custom/salary.pipe';
     OrderComponent,
     PagenotfoundComponent,
     LoginComponent,
-    SalaryPipe  ],
+    SalaryPipe,
+    PasswordValidatorDirective  ],
   imports: [
     BrowserModule,
     SharedModule,

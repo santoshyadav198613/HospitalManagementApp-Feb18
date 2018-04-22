@@ -11,7 +11,7 @@ import { Employee } from '../../services/employee/employee';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit, OnChanges, OnDestroy {
-  amount : number= 0;
+  amount= 0;
   @Input() employeeList: Employee[];
   @Input() title: string;
   @Output() selectedEmployee: EventEmitter<Employee> = new EventEmitter<Employee>();

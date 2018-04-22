@@ -3,8 +3,8 @@ import { User } from './user';
 
 @Injectable()
 export class LoginService {
-  isLoggedIn : boolean = false;
-  isAdmin : boolean = false;
+  isLoggedIn = false;
+  isAdmin = false;
   constructor() { }
 
   login(user: User) {

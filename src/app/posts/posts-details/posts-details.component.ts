@@ -17,6 +17,6 @@ export class PostsDetailsComponent implements OnInit {
       this.postId = + res.get('id');
       },
       (err) => console.log(err)
-    )
+    );
   }
 }

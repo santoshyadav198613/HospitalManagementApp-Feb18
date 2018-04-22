@@ -18,7 +18,7 @@ import { HoverDirective } from '../directives/hover/hover.directive';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,AmountPipe, HoverDirective],
+    RouterModule, AmountPipe, HoverDirective],
   declarations: [AmountPipe, HoverDirective]
 })
 export class SharedModule { }

@@ -35,8 +35,8 @@ export class BooksComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => this.bookListComponent.booksList = this.books, 0);
     this.bookChildrenComponent.forEach((bookComponent) => {
-      setTimeout(()=>bookComponent.booksList = this.books,0);
-    })
+      setTimeout(() => bookComponent.booksList = this.books, 0);
+    });
     // this.bookListComponent.booksList = this.books;
   }
 
@@ -46,7 +46,7 @@ export class BooksComponent implements OnInit, AfterViewInit {
     console.log(this.bookChildrenComponent);
     this.bookChildrenComponent.forEach((bookComponent) => {
       bookComponent.booksList = this.books;
-    })
+    });
   }
 
 }

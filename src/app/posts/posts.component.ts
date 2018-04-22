@@ -11,7 +11,7 @@ import { HttpEventType } from '@angular/common/http';
 export class PostsComponent implements OnInit {
   postsList: Posts[];
   post: Posts = new Posts();
-  downloadedBytes: number = 0;
+  downloadedBytes = 0;
   constructor(private postService: PostsService) { }
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class PostsComponent implements OnInit {
         }
       },
       (err) => console.log(err)
-    )
+    );
 
   }
 
@@ -39,7 +39,7 @@ export class PostsComponent implements OnInit {
       console.log(res);
       this.post = new Posts();
     },
-      (err) => console.log(err))
+      (err) => console.log(err));
   }
 
   updatePost() {

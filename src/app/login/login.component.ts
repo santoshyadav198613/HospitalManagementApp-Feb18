@@ -21,6 +21,6 @@ export class LoginComponent implements OnInit {
       //redirect User
       this.router.navigate(['employee']);
     }
-    //show error 
+    //show error
   }
 }

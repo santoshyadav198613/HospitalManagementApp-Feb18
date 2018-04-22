@@ -7,7 +7,7 @@ import { LoginService } from './login/service/login.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  // template : `<h1> 
+  // template : `<h1>
   //       Root Component </h1>`,
   styleUrls: ['./app.component.css']
   // styles: [
@@ -16,7 +16,7 @@ import { LoginService } from './login/service/login.service';
 export class AppComponent implements OnInit {
   title = '';
   constructor(private empService: EmployeeService,
-  @Inject(APP_PROVIDER) private appConfig : IAppProvider,
+  @Inject(APP_PROVIDER) private appConfig: IAppProvider,
   public loginService: LoginService) { }
 
   ngOnInit() {

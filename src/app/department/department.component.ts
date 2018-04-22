@@ -14,7 +14,7 @@ export class DepartmentComponent implements OnInit {
     { empid: 101, empname: 'emp2', empemail: 'abc@gmail.com', empsalary: 20000 },
     { empid: 102, empname: 'emp3', empemail: 'abc@gmail.com', empsalary: 30000 },
     { empid: 103, empname: 'emp4', empemail: 'abc@gmail.com', empsalary: 40000 }
-  ]
+  ];
   constructor() { }
 
   ngOnInit() {

@@ -16,7 +16,7 @@ export class PasswordValidatorDirective implements Validator {
   validate(c: AbstractControl): ValidationErrors | null {
     if (c.value !== undefined && c.value !== null) {
       if (c.value.length < 5 || c.value.length > 15) {
-        return { passwordInvalid: true }
+        return { passwordInvalid: true };
       }
       return null;
     }

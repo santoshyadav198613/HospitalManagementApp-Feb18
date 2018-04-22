@@ -13,7 +13,7 @@ export class HoverDirective implements OnInit {
 
   ngOnInit() {
     this.render.setStyle(this.el.nativeElement, 'background-color', this.color);
-    this.render.addClass(this.el.nativeElement,'form-control');
+    this.render.addClass(this.el.nativeElement, 'form-control');
   }
 
   @HostListener('mouseover') onmouseover() {

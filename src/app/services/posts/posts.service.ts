@@ -9,7 +9,7 @@ export class PostsService {
 
   apiBaseUrl: string;
 
-  constructor(isLoggedIn:boolean, private http: HttpClient, @Inject(VALUE_PROVIDER) private valueProvider: any) {
+  constructor(isLoggedIn: boolean, private http: HttpClient, @Inject(VALUE_PROVIDER) private valueProvider: any) {
     this.apiBaseUrl = this.valueProvider.apiUrl;
     console.log(isLoggedIn);
   }
@@ -21,20 +21,20 @@ export class PostsService {
 
   addPost(post: Posts) {
     // let post: Posts = { title: 'Test', body: 'Test Body', userId: 3 };
-    return this.http.post<Posts>(this.apiBaseUrl +'posts', post);
+    return this.http.post<Posts>(this.apiBaseUrl + 'posts', post);
   }
 
   updatePost() {
-    let post: Posts = { id: 2, userId: 1, body: 'Test Update', title: 'Test Update' };
-    return this.http.put(this.apiBaseUrl +'posts/2', post);
+    const post: Posts = { id: 2, userId: 1, body: 'Test Update', title: 'Test Update' };
+    return this.http.put(this.apiBaseUrl + 'posts/2', post);
   }
 
   deletePost() {
-    return this.http.delete(this.apiBaseUrl +'posts/2');
+    return this.http.delete(this.apiBaseUrl + 'posts/2');
   }
 
   getPhotos() {
-    const request = new HttpRequest('GET', this.apiBaseUrl +'photos',
+    const request = new HttpRequest('GET', this.apiBaseUrl + 'photos',
       { reportProgress: true });
     return this.http.request(request);
   }

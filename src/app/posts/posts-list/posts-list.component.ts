@@ -20,10 +20,10 @@ export class PostsListComponent implements OnInit {
 
     this.route.data.subscribe(
       (res) => {
-        this.postsList = res['postsList']
+        this.postsList = res['postsList'];
       },
       (err) => console.log(err)
-    )
+    );
   }
 
 }

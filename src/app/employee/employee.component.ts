@@ -9,9 +9,9 @@ import { EmployeeService } from '../services/employee/employee.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit, DoCheck {
-  title: string = 'Employee List';
-  visible: boolean = false;
-  role: string = 'User';
+  title = 'Employee List';
+  visible = false;
+  role = 'User';
   selectedEmployee: Employee;
   employee: Employee[] = [];
   // employeeSevice: EmployeeService;
@@ -39,7 +39,7 @@ export class EmployeeComponent implements OnInit, DoCheck {
 
   toggle(): void {
     this.visible = !this.visible;
-    this.title = "New Employee List";
+    this.title = 'New Employee List';
   }
 
   receiveFromParent(emp: Employee) {

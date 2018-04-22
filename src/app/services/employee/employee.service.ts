@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Employee } from './employee';
- 
+
 @Injectable()
 export class EmployeeService {
   empList: Employee[] = [];
@@ -20,7 +20,7 @@ export class EmployeeService {
   }
 
   addEmployee() {
-    let employee = { id: 5, name: 'Amit', email: 'abc@gmail.com', salary: 120000 , dob : new Date('10-Nov-1567')};
+    const employee = { id: 5, name: 'Amit', email: 'abc@gmail.com', salary: 120000 , dob : new Date('10-Nov-1567')};
     this.empList.push(employee);
   }
 }

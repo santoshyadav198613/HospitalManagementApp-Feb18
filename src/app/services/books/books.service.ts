@@ -3,7 +3,7 @@ import { Book } from './book';
 
 @Injectable()
 export class BooksService {
-  bookList: Book[] = []
+  bookList: Book[] = [];
   constructor() { }
 
   getBooks() {

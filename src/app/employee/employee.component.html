@@ -1,3 +1,28 @@
+<h1>
+    Add Employee
+</h1>
+<form #empForm="ngForm" (submit)="addEmployee()">
+    <div class="form-group">
+        <input required class="form-control" type="number" [(ngModel)]="emp.id" name="id" placeholder="Id">
+    </div>
+    <div class="form-group">
+        <input required class="form-control" type="text" [(ngModel)]="emp.name" name="name" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <input required class="form-control" type="number" [(ngModel)]="emp.salary" name="salary" placeholder="Salary">
+    </div>
+    <div class="form-group">
+        <input required class="form-control" type="email" [(ngModel)]="emp.email" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <input required class="form-control" type="date" [(ngModel)]="emp.dob" name="dob" placeholder="DOB">
+    </div>
+    <div>
+        <button [disabled]="empForm.invalid" type="submit" class="btn btn-primary">Add Employee</button>
+    </div>
+</form>
+
+
 <h1 [ngClass]=" { 'alert alert-success' : visible }">
     Employee Component
 </h1>
@@ -5,11 +30,11 @@
 
 {{title}}
 <div [hidden]="visible" [innerText]="title">
- 
+
 </div>
 
 <div *ngIf="visible" [innerText]="title">
- 
+
 </div>
 
 <!-- 
@@ -19,20 +44,18 @@
 
 {{visible}}
 
-<button type="button" (click)="toggle()">Toggle</button> 
-<hr>
-{{selectedEmployee| json}}
+<button type="button" (click)="toggle()">Toggle</button>
+<hr> {{selectedEmployee| json}}
 <hr>
 
 <!-- <div *ngIf="visible"> -->
-    <app-employee-list [employeeList]="employee"
-    [title]="title" (selectedEmployee)="receiveFromParent($event)"></app-employee-list>
+<app-employee-list [employeeList]="employee" [title]="title" (selectedEmployee)="receiveFromParent($event)"></app-employee-list>
 <!-- </div> -->
 
 
 <div [ngSwitch]="role">
     <div *ngSwitchCase="'User'">
-            This is User Section.
+        This is User Section.
     </div>
     <div *ngSwitchCase="'Admin'">
         This is Admin Section.
@@ -41,6 +64,6 @@
         This is Super User Section.
     </div>
     <div *ngSwitchDefault>
-            This is default view.
+        This is default view.
     </div>
 </div>

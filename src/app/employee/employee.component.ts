@@ -12,6 +12,7 @@ export class EmployeeComponent implements OnInit, DoCheck {
   title = 'Employee List';
   visible = false;
   role = 'User';
+  emp: Employee = new Employee();
   selectedEmployee: Employee;
   employee: Employee[] = [];
   // employeeSevice: EmployeeService;
@@ -28,13 +29,14 @@ export class EmployeeComponent implements OnInit, DoCheck {
   }
 
   loadEmployee() {
-    this.employee = this.empService.getEmployeeList();
-    // this.employee = [
-    //   { id: 1, name: 'Test1', email: 'abc@gmail.com', salary: 12000 },
-    //   { id: 2, name: 'Test2', email: 'abc@gmail.com', salary: 24000 },
-    //   { id: 3, name: 'Test3', email: 'abc@gmail.com', salary: 48000 },
-    //   { id: 4, name: 'Test4', email: 'abc@gmail.com', salary: 120000 }
-    // ];
+    this.empService.getEmployeeList().subscribe((data) => this.employee = data);
+  }
+
+  addEmployee() {
+    this.empService.addEmployee(this.emp).subscribe(
+      (data) => console.log(data),
+      (err) => console.log(err)
+    )
   }
 
   toggle(): void {

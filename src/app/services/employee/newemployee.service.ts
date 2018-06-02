@@ -3,11 +3,11 @@ import { EmployeeService } from './employee.service';
 import { Employee } from './employee';
 
 @Injectable()
-export class NewemployeeService extends EmployeeService {
+export class NewemployeeService  {
   empList: Employee[] = [];
 
   constructor() {
-    super();
+    //super();
   }
 
   getEmployeeList() {

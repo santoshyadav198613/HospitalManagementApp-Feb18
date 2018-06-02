@@ -44,7 +44,7 @@ import { PasswordValidatorDirective } from './login/password-validator/password-
   ],
   providers: [
     // EmployeeService,
-    { provide: EmployeeService, useClass: NewemployeeService },
+    { provide: EmployeeService, useClass: EmployeeService },
     { provide: VALUE_PROVIDER, useValue: environment },
     { provide: APP_PROVIDER, useValue: AppConfig },
     LoginService, AuthGuard],

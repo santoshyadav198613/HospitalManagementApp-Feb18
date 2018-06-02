@@ -25,6 +25,6 @@ export class AppComponent implements OnInit {
   }
 
   addEmployee() {
-    this.empService.addEmployee();
+    //this.empService.addEmployee();
   }
 }

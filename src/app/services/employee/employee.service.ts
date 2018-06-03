@@ -20,4 +20,8 @@ export class EmployeeService {
   getEmployeeDetails(id: number) {
     return this.http.get<Employee>('http://localhost:3000/api/employee/' + id);
   }
+
+  updateEmployee(employee: Employee) {
+    return this.http.put('http://localhost:3000/api/employee', employee);
+  }
 }

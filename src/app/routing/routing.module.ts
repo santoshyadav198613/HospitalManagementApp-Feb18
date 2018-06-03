@@ -8,6 +8,7 @@ import { OrderComponent } from '../order/order.component';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 import { LoginComponent } from '../login/login.component';
 import { AuthGuard } from '../services/guards/auth.guard';
+import { EmployeeDetailsComponent } from '../employee/employee-details/employee-details.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { AuthGuard } from '../services/guards/auth.guard';
         { path: 'book', component: BooksComponent, canActivate: [AuthGuard] },
         { path: 'department', component: DepartmentComponent, canActivate: [AuthGuard] },
         { path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard] },
+        { path: 'employee/:id', component: EmployeeDetailsComponent, canActivate: [AuthGuard] }, 
         { path: 'order', component: OrderComponent, canActivate: [AuthGuard] },
         { path: '', redirectTo: 'login', pathMatch: 'full' },
         { path: '**', component: PagenotfoundComponent }

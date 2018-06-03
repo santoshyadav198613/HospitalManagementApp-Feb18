@@ -1,0 +1,26 @@
+<h1>
+  Edit Details for Employee Id: {{employee.id}}
+</h1>
+<div *ngIf="message" class="alert alert-success">
+  {{message}}
+</div>
+<form #empEditForm="ngForm" (submit)="update()">
+  <div class="form-group">
+    <input required class="form-control" readonly type="number" [(ngModel)]="employee.id" name="id" placeholder="Id">
+</div>
+<div class="form-group">
+    <input required class="form-control" type="text" [(ngModel)]="employee.name" name="name" placeholder="Name">
+</div>
+<div class="form-group">
+    <input required class="form-control" type="number" [(ngModel)]="employee.salary" name="salary" placeholder="Salary">
+</div>
+<div class="form-group">
+    <input required class="form-control" type="email" [(ngModel)]="employee.email" name="email" placeholder="Email">
+</div>
+<div class="form-group">
+    <input required class="form-control" type="date" [(ngModel)]="employee.dob" name="dob" placeholder="DOB">
+</div>
+<div>
+    <button [disabled]="empEditForm.invalid" type="submit" class="btn btn-primary">Update Employee</button>
+</div>
+</form>

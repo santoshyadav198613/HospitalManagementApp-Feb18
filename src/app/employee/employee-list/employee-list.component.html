@@ -26,6 +26,9 @@
             <th>
                 Select
             </th>
+            <th>
+                Edit
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -48,6 +51,11 @@
             <td>
                 <button (click)="selectEmployee(emp)" type="button" class="btn btn-primary">
                     Select
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-success" [routerLink]="[emp.id]">
+                    Edit
                 </button>
             </td>
         </tr>

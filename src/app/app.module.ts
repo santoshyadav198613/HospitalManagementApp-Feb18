@@ -24,6 +24,7 @@ import { LoginService } from './login/service/login.service';
 import { AuthGuard } from './services/guards/auth.guard';
 import { SalaryPipe } from './custom/salary.pipe';
 import { PasswordValidatorDirective } from './login/password-validator/password-validator.directive';
+import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { PasswordValidatorDirective } from './login/password-validator/password-
     PagenotfoundComponent,
     LoginComponent,
     SalaryPipe,
-    PasswordValidatorDirective  ],
+    PasswordValidatorDirective,
+    EmployeeDetailsComponent  ],
   imports: [
     BrowserModule,
     SharedModule,
